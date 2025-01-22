@@ -1,6 +1,8 @@
 /* Custom cursor styles */
-body * {
-    cursor: none !important; /* Force hide default cursor on all elements */
+@media (min-width: 769px) {
+    body * {
+        cursor: none !important; /* Only hide default cursor on desktop */
+    }
 }
 
 .custom-cursor {
@@ -14,6 +16,12 @@ body * {
     z-index: 9999;
     transform: translate(-50%, -50%); /* Center the cursor */
     transition: width 0.3s, height 0.3s;
+}
+
+@media (max-width: 768px) {
+    .custom-cursor {
+        display: none !important;
+    }
 }
 
 /* Cursor scale effect on interactive elements */

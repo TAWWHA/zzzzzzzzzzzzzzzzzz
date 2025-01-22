@@ -26,5 +26,8 @@ export class Cursor {
 
 // Initialize cursor
 export function initCursor() {
-    new Cursor();
+    // Only initialize cursor on desktop
+    if (!window.matchMedia("(max-width: 768px)").matches) {
+        new Cursor();
+    }
 }
