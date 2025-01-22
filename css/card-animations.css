@@ -1,0 +1,97 @@
+/* 3D Card Animation Configuration */
+:root {
+  --card-max-rotation: 5deg;
+  --card-transition-duration: 400ms;
+  --card-transition-timing: cubic-bezier(0.23, 1, 0.32, 1);
+  --card-perspective: 1000px;
+  --card-hover-scale: 1.15; /* Increased to 15% scale on hover */
+  --card-shadow-normal: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: 0 12px 25px -6px rgba(0, 0, 0, 0.25);
+  --image-hover-scale: 1.2; /* 20% scale for images on hover */
+  --title-hover-scale: 1.1; /* 10% scale for title on hover */
+  --image-transition-timing: cubic-bezier(0.4, 0, 0.2, 1); /* Smooth easing for image scaling */
+  --image-transition-duration: 800ms; /* Longer duration for smoother feel */
+}
+
+.project-card {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: var(--card-perspective);
+  perspective-origin: 50% 50%;
+  transform: perspective(var(--card-perspective)) rotateX(0) rotateY(0) scale(1);
+  transition: transform var(--card-transition-duration) var(--card-transition-timing),
+              box-shadow var(--card-transition-duration) var(--card-transition-timing);
+  box-shadow: var(--card-shadow-normal);
+  will-change: transform, box-shadow;
+  overflow: hidden;
+}
+
+.project-card.hover-active {
+  box-shadow: var(--card-shadow-hover);
+  transform: scale(var(--card-hover-scale)); /* Scale up card on hover */
+}
+
+/* Image container styles */
+.project-card-image {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+}
+
+/* Image scaling effect with smoother transition */
+.project-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--image-transition-duration) var(--image-transition-timing);
+  transform-origin: center;
+  will-change: transform;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.project-card:hover .project-card-image img {
+  transform: scale(var(--image-hover-scale));
+}
+
+/* Title scaling effect with maximum quality */
+.project-card h3 {
+  font-family: 'Kodchasan', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition: all var(--card-transition-duration) var(--card-transition-timing);
+  transform-origin: left center;
+  will-change: transform;
+  
+  /* Enhanced text rendering */
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1;
+  
+  /* Prevent blur during transform */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  
+  /* Force GPU acceleration */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  
+  /* Sharper text */
+  letter-spacing: 0.01em;
+}
+
+.project-card:hover h3 {
+  transform: scale(var(--title-hover-scale));
+  letter-spacing: 0.015em;
+}
+
+/* Ensure content stays above the card during rotation */
+.project-card > * {
+  position: relative;
+  z-index: 1;
+}

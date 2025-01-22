@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    color: #333;
+    line-height: 1.5;
+}
+
+section {
+    height: 100vh;
+    scroll-snap-align: start;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2 {
+    margin-bottom: 2rem;
+}
+
+/* Intro Section */
+#intro {
+    background: #f8f8f8;
+    text-align: center;
+}
+
+#intro p {
+    max-width: 600px;
+}
+
+/* Projects Section */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Members Section */
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+}
+
+.member {
+    text-align: center;
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    background: #ddd;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+}
+
+/* Join Section */
+.social-icons {
+    margin-bottom: 2rem;
+}
+
+.icon {
+    font-size: 2rem;
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+.email-capture {
+    display: flex;
+    gap: 1rem;
+}
+
+input, button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .members-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid, .members-grid {
+        grid-template-columns: 1fr;
+    }
+}

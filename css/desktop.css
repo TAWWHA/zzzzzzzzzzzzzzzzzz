@@ -1,0 +1,22 @@
+/* Desktop Styles (1200px and up) */
+@media (min-width: 1200px) {
+    .project-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    .project-card {
+        min-height: 420px;
+    }
+
+    .project-card img {
+        height: 280px;
+    }
+}
+
+/* Large Desktop Styles */
+@media (min-width: 1400px) {
+    .project-grid {
+        gap: 2.5rem;
+    }
+}

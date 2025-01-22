@@ -1,0 +1,26 @@
+/* Custom cursor styles */
+body * {
+    cursor: none !important; /* Force hide default cursor on all elements */
+}
+
+.custom-cursor {
+    width: 30px; /* Increased size for better visibility */
+    height: 30px;
+    background: #fff;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 9999;
+    transform: translate(-50%, -50%); /* Center the cursor */
+    transition: width 0.3s, height 0.3s;
+}
+
+/* Cursor scale effect on interactive elements */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor,
+.project-card:hover ~ .custom-cursor,
+.slide-nav-button:hover ~ .custom-cursor {
+    width: 50px;
+    height: 50px;
+}

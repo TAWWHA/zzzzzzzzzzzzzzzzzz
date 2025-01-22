@@ -1,0 +1,91 @@
+/**
+ * Styles for the slideshow component
+ * 
+ * Customize:
+ * - Slide transition timing: Change cubic-bezier values
+ * - Navigation button size: Adjust clamp values
+ * - Dot size and spacing: Modify clamp values
+ */
+
+.slideshow {
+    position: relative;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.slideshow-container {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+}
+
+.slide {
+    flex: 0 0 100%;
+    width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Navigation buttons */
+.slide-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(30px, 5vw, 50px);
+    height: clamp(30px, 5vw, 50px);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    cursor: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    z-index: 2;
+}
+
+.slide-nav-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.slide-nav-prev { left: 1rem; }
+.slide-nav-next { right: 1rem; }
+
+/* Navigation dots */
+.slide-nav {
+    position: absolute;
+    bottom: clamp(0.75rem, 2vw, 1.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: clamp(0.4rem, 1vw, 0.8rem);
+    padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 1rem);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 100px;
+}
+
+.slide-dot {
+    width: clamp(6px, 1.5vw, 10px);
+    height: clamp(6px, 1.5vw, 10px);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: none;
+    transition: all 0.3s ease;
+}
+
+.slide-dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.slide-dot.active {
+    background: #fff;
+    transform: scale(1.2);
+}

@@ -1,0 +1,37 @@
+/**
+ * Styles for the project information display
+ * 
+ * Customize:
+ * - Font sizes: Adjust clamp values
+ * - Spacing: Modify margin and padding
+ * - Colors: Change rgba values
+ */
+
+.modal-info {
+    color: #fff;
+}
+
+.modal-info h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1rem;
+}
+
+.modal-info .meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.modal-info .description {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-info .meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

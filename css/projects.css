@@ -1,0 +1,113 @@
+#projects {
+    padding: clamp(1rem, 5vw, 3rem);
+    scroll-snap-align: start;
+    min-height: 100vh;
+    background: #000;
+}
+
+/* Project Grid Layout */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 2rem);
+    max-width: var(--bp-large);
+    margin: 0 auto;
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+/* Project Card Base */
+.project-card {
+    position: relative;
+    background: #111;
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (hover: hover) {
+  .project-card:hover {
+    transform: scale(1.15);
+    z-index: 10;
+    transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Project Image Container */
+.project-card-image {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+}
+
+/* Project Image */
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transform-origin: center;
+    will-change: transform;
+}
+
+/* Project Info */
+.project-info {
+    flex: 1;
+    padding: 1.25rem;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 140px;
+}
+
+/* Project Text */
+.project-info h3 {
+    font-family: 'Kodchasan', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.project-meta {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0.5rem 0;
+}
+
+.project-type {
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.05em;
+}
+
+.project-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
+/* Tags */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+}

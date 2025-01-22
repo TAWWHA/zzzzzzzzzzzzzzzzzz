@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    overflow: hidden; /* Prevent double scrollbars */
+}
+
+body {
+    font-family: 'Kodchasan', sans-serif;
+    font-weight: 400;
+    background: #000;
+    color: #fff;
+    line-height: 1.6;
+    height: 100%;
+    overflow: hidden; /* Prevent body scroll */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Kodchasan', sans-serif;
+    font-weight: 700;
+}
+
+main {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+main::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+main {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
